@@ -1,70 +1,103 @@
+<<<<<<< HEAD
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import NaviBar from './NaviBar'
+=======
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+>>>>>>> development
 
 const ViewDonor = () => {
+  const [data, changeData] = useState([]);
 
-    const [data, changeData] = useState([])
+  const fetchData = () => {
+    axios
+      .get("https://host-demo-app.onrender.com/api/donors")
+      .then((response) => {
+        changeData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    const fetchData = () => {
-        axios.get("https://host-demo-app.onrender.com/api/donors")
-            .then((response) => {
-                changeData(response.data)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    useEffect(() => {
-        fetchData()
-    }, [])
+  return (
+    <div className="container mt-4">
+      <div className="row">
+        {data.map((value) => (
+          <div
+            className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+            key={value.id}
+          >
+            <div className="card shadow h-100">
+              <div className="card-body">
+                <h4 className="text-danger text-center mb-3">
+                  🩸 Blood Donor
+                </h4>
 
+<<<<<<< HEAD
     return (
         <div className="container mt-4">
             <NaviBar/>
             <div className="row">
+=======
+                <p>
+                  <strong>Name:</strong> {value.donor_name}
+                </p>
+>>>>>>> development
 
-                {data.map((value, index) => {
-                    return (
-                        <div
-                            className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
-                            key={index}
-                        >
-                            <div className="card h-100 shadow">
-                                <div className="card-body">
-                                    <h5 className="card-title">
-                                        {value.name}
-                                    </h5>
+                <p>
+                  <strong>Age:</strong> {value.age}
+                </p>
 
-                                    <p className="card-text">
-                                        <strong>Blood Group:</strong> {value.bloodGroup}
-                                    </p>
+                <p>
+                  <strong>Gender:</strong> {value.gender}
+                </p>
 
-                                    <p className="card-text">
-                                        <strong>Age:</strong> {value.age}
-                                    </p>
+                <p>
+                  <strong>Blood Group:</strong> {value.blood_group}
+                </p>
 
-                                    <p className="card-text">
-                                        <strong>Phone:</strong> {value.phone}
-                                    </p>
+                <p>
+                  <strong>Phone:</strong> {value.phone}
+                </p>
 
-                                    <p className="card-text">
-                                        <strong>Place:</strong> {value.place}
-                                    </p>
+                <p>
+                  <strong>Email:</strong> {value.email}
+                </p>
 
-                                    <button className="btn btn-primary w-100">
-                                        Contact
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                })}
+                <p>
+                  <strong>City:</strong> {value.city}
+                </p>
 
+                <p>
+                  <strong>Weight:</strong> {value.weight_kg} kg
+                </p>
+
+                <p>
+                  <strong>Last Donation:</strong>{" "}
+                  {value.last_donation_date}
+                </p>
+
+                <p>
+                  <strong>Created At:</strong>{" "}
+                  {new Date(value.created_at).toLocaleString()}
+                </p>
+
+                <button className="btn btn-danger w-100">
+                  Contact Donor
+                </button>
+              </div>
             </div>
-        </div>
-    )
-}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default ViewDonor
+export default ViewDonor;
