@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import NaviBar from "./NaviBar";
 
 const ViewDonor = () => {
   const [data, changeData] = useState([]);
@@ -21,6 +22,8 @@ const ViewDonor = () => {
 
   return (
     <div className="container mt-4">
+      <NaviBar />
+
       <div className="row">
         {data.map((value) => (
           <div
@@ -66,8 +69,7 @@ const ViewDonor = () => {
                 </p>
 
                 <p>
-                  <strong>Last Donation:</strong>{" "}
-                  {value.last_donation_date}
+                  <strong>Last Donation:</strong> {value.last_donation_date}
                 </p>
 
                 <p>
