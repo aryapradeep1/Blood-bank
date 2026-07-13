@@ -12,7 +12,7 @@ const NaviBar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/">Add Donor</a>
+        <a class="nav-link active" aria-current="page" href="/">Add Donor detailes</a>
         <a class="nav-link" href="/view">View Donor</a>
       </div>
     </div>
