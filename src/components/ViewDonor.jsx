@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import NaviBar from './NaviBar'
 
 const ViewDonor = () => {
 
@@ -21,6 +22,7 @@ const ViewDonor = () => {
 
     return (
         <div className="container mt-4">
+            <NaviBar/>
             <div className="row">
 
                 {data.map((value, index) => {

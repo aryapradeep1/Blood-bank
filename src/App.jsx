@@ -5,14 +5,19 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import AddBllod from './components/AddBllod'
 import ViewDonor from './components/ViewDonor'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-     <AddBllod/>
-     <ViewDonor/>
+     <BrowserRouter>
+     <Routes>
+      <Route path='/' element={<AddBllod/>}/>
+      <Route path='/view' element={<ViewDonor/>}/>
+     </Routes>
+     </BrowserRouter>
     </>
   )
 }

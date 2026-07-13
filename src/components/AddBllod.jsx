@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import NaviBar from "./NaviBar";
 
 const AddBllod = () => {
   const [input, changeInput] = useState({
@@ -40,6 +41,7 @@ const AddBllod = () => {
 
   return (
     <div className="container mt-4">
+        <NaviBar/>
       <div className="row g-3">
 
         <div className="col-md-6">
